@@ -8,5 +8,9 @@
     "promise-parallel-throttle": "^3.2.0",
     "puppeteer": "^1.11.0",
     "puppeteer-pool": "^1.0.3"
+  },
+  "scripts": {
+    "browser": "node browser.js",
+    "checker": "node checker.js"
   }
 }
