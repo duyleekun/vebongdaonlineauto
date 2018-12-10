@@ -21,18 +21,12 @@ const _ = require("lodash");
         try {
             const reqBody = {"matchId":"28","price":_.sample(["200000","350000","500000","600000"]),"seat":"1"}
             const res = await client.post("checkValidBookTicket", JSON.stringify(reqBody))
-            console.dir(i)
-            if (res.data != 'NG') {
-                console.dir(reqBody)
-                console.dir(res.data)
-            }
-
+            console.dir(`${res.data} - ${JSON.stringify(reqBody)}`)
         } catch (e) {
-            console.dir(i)
-            console.error(e.message)
+
         }
     });
 
     //Default Throttle runs with 5 promises parallel.
-    const formattedNames = await Throttle.all(queue, {maxInProgress: 40});
+    const formattedNames = await Throttle.all(queue, {maxInProgress: 5});
 })()
