@@ -1,0 +1,261 @@
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HỆ THỐNG ĐẶT VÉ ONLINE</title>
+<link rel="shortcut icon" href="/resources/images/logo.png">
+
+<!-- Bootstrap -->
+<link href="/resources/css/bootstrap.css" rel="stylesheet">
+<link href="/resources/css/styles.css" rel="stylesheet">
+<link href="/resources/css/checkbox.css" rel="stylesheet">
+
+<!-- java script -->
+<script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-5SZNM42"></script><script src="/resources/jquery/jquery-3.1.0.min.js"></script>
+<script src="/resources/jquery/common.js"></script>
+<script src="/resources/js/bookTicket.js?v=3"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5SZNM42');</script>
+	<!-- End Google Tag Manager -->
+
+</head>
+<body>
+
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5SZNM42"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+
+
+
+
+	<header>
+		<div class="container">
+			<div class="logo">
+				<a href="/">
+					<img src="/resources/images/logo.png">
+				</a>
+			</div>
+			<!-- <div class="txt_top">
+				<h2>LIÊN ĐOÀN BÓNG ĐÁ VIỆT NAM</h2>
+				<h3>BÁN VÉ ONLINE</h3>
+			</div> -->
+			<div class="login_top">
+
+
+						<span class="people"></span>
+						<a onclick="returnCustomerTransaction('');">Kiểm tra đơn hàng</a> |
+						<a onclick="returnLogin('')">Đăng nhập</a> |
+						<a onclick="returnLogin('')">Đăng ký</a>
+
+
+
+			</div>
+		</div>
+	</header>
+
+	<input type="hidden" id="url" value="">
+	<div class="container">
+		<div class="box_container">
+			<div class="content">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-8 col-sm-12">
+							<div class="step_box">
+								<div class="box_01">
+									<div class="title_step_box">Chọn mệnh giá vé</div>
+									<div class="funkyradio">
+										<div class="content_step_box">
+											<select class="number_chair" id="selectPrice" onchange="changePrice();">
+
+												<option value="" selected="selected"> Chọn mệnh giá </option>
+
+
+
+
+
+															<option value="200000" disabled="disabled">200,000 (Đang xác nhận thanh toán)</option>
+
+
+
+
+														
+
+
+															<option value="350000" disabled="disabled">350,000 (Đang xác nhận thanh toán)</option>
+
+
+
+
+
+
+
+															<option value="500000" disabled="disabled">500,000 (Đang xác nhận thanh toán)</option>
+
+
+
+
+
+
+
+															<option value="600000" disabled="disabled">600,000 (Đang xác nhận thanh toán)</option>
+
+
+
+											</select>
+										</div>
+									</div>
+
+								</div>
+
+								<div id="boxSeat" class="box_04">
+									<div class="title_step_box last-img">Chọn số lượng vé</div>
+										<div class="content_step_box">
+											<select class="number_chair" onchange="changeSeat()" id="seatSelect">
+
+													<option value="1">01</option>
+
+													<option value="2">02</option>
+
+											</select>
+										</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div style="clear: left;">
+							<br>
+							<b>(*) QUÝ KHÁCH VUI LÒNG ĐỌC THẬT KỸ CÁC LƯU Ý SAU:</b><br>
+							- Giá vé chưa bao gồm phí vận chuyển và phí dịch vụ.<br>
+							- Khi đặt mua vé, Quý khách chỉ được chọn mệnh giá vé. Số ghế/cửa/tầng/khán đài sẽ được lựa chọn ngẫu nhiên khi trả vé.<br>
+							- <b>Số lượng vé còn lại:</b> Do vé được mở bán theo 4 đợt cố định nên số lượng vé còn lại được hiểu là số lượng vé còn lại của đợt bán tính tại thời điểm Quý khách bắt đầu truy cập vào màn hình chọn vé. Vì lượng người dùng truy cập đồng thời quá nhiều nên lượng vé còn lại sẽ thay đổi liên tục mà chúng tôi không thể thông báo trước.<br>
+							- Trong quá trình đặt vé, các vé mà Quý khách lựa chọn sẽ chuyển sang trạng thái GIỮ CHỖ khi đến được màn hình THANH TOÁN. Hệ thống không ghi nhận trạng thái GIỮ CHỖ khi Quý khách đang tiến hành các thao tác tại màn hình lựa chọn mệnh giá, số vé và màn hình THÔNG TIN.<br>
+							- Giao dịch mua vé được coi là thành công khi Quý khách hoàn tất việc Thanh toán (Trên hệ thống của chúng tôi ghi nhận có xác nhận thành công từ Cổng thanh toán đối với giao dịch của Quý khách. Quý khách cần kiểm tra đơn hàng để biết mã hóa đơn của Quý khách đã tồn tại trên hệ thống). <br><b>Tất cả các GIAO DỊCH ĐÃ BỊ TRỪ TIỀN nhưng hệ thống không ghi nhận MÃ HÓA ĐƠN do lỗi trong quá trình xử lý thanh toán sẽ mặc định là khách hàng được HOÀN TIỀN theo Chính sách và Điều khoản chung.<b><br>
+							</b></b></div><b><b>
+						</b></b></div><b><b>
+
+						<div class="col-md-4 col-sm-12">
+							<form id="selectTicketForm" action="/bookTicket" method="post">
+
+								<div class="login">
+									<div class="title_box">THÔNG TIN ĐẶT VÉ</div>
+
+										<div class="content_box">
+											<div class="box_ticket">
+												<h3>ĐTQG Việt Nam - ĐTQG Malaysia</h3>
+
+												<span class="time_match">
+
+													19h30 ngày 15/12/2018
+												</span>
+
+												<span class="place_match">SVĐ Quốc gia Mỹ Đình</span>
+												<span class="pricePerTicketBill">Giá vé: </span>
+												<span class="chair_match">0 vé</span>
+												<input type="hidden" id="stadiumId" name="stadiumId" value="1">
+												<input type="hidden" id="matchId" name="matchId" value="28">
+												<input type="hidden" id="matchName" name="matchName" value="ĐTQG Việt Nam - ĐTQG Malaysia">
+												<input type="hidden" id="matchDate" name="matchDate" value="2018-12-15">
+												<input type="hidden" id="matchTime" name="matchTime" value="19:30">
+												<input type="hidden" id="stadiumName" name="stadiumName" value="SVĐ Quốc gia Mỹ Đình">
+												<input type="hidden" id="seatValue" name="seatValue" value="1">
+												<input type="hidden" id="priceValue" name="price">
+
+											</div>
+										</div>
+
+								</div>
+
+								<button id="btnSubmit" class="btn_login submitChooseSeat" type="button" style="visibility: hidden;">Tiếp tục</button>
+
+							</form>
+
+						</div>
+					</b></b></div><b><b>
+				</b></b></div><b><b>
+			</b></b></div><b><b>
+		</b></b></div><b><b>
+	</b></b></div><b><b>
+	<div id="wait" style="display: none;">
+	</div>
+	<img alt="loading" id="loadingIcon" src="/resources/images/loading.svg" style="display: none;">
+	<script>
+
+		function changePrice() {
+			var priceValue = $('#selectPrice').val();
+
+			if (priceValue) {
+				var el = document.getElementById('selectPrice');
+				var textPrice = el.options[el.selectedIndex].innerHTML;
+				$('.pricePerTicketBill').html("Giá vé: " +  textPrice.split(' ')[0] + " VNĐ");
+
+				$('#priceValue').val(priceValue);
+
+				$('.chair_match').html($('#seatSelect').val() + " vé");
+				document.getElementById("btnSubmit").style.visibility = 'visible';
+			}
+			else {
+				$('#priceValue').val(0);
+				$('.pricePerTicketBill').html("Giá vé: ");
+				document.getElementById("btnSubmit").style.visibility = 'hidden';
+			}
+		}
+	</script>
+
+	<footer style="background-color: #3b3b3b;" class="page-footer-fixed">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<br>
+					<ul style="font-weight: normal;color: #FFF;">
+						<li>® Bản quyền thuộc <b>Công ty cổ phần GMO-Z.COM RUNSYSTEM</b></li>
+						<li>Mã số doanh nghiệp: 0101659906 Ngày cấp 05/04/2005.</li>
+						<li>Nơi cấp: Sở kế hoạch và đầu tư thành phố Hà Nội.</li>
+						<li>Địa chỉ: Tầng 06, toà nhà Ocean Park, số 01 Đào Duy Anh, P. Phương Mai, Q. Đống Đa, TP. Hà Nội.</li>
+					</ul>
+				</div>
+				<div class="col-md-2" style="color: #FFF;">
+				</div>
+				<div class="col-md-4" style="color: #FFF;">
+					<br>
+					<ul>
+						<li style="list-style: none; font-size: 16px"><b>Chính sách</b></li>
+						<li style="font-weight: normal;color: #FFF;padding: 0"><a href="/resources/quydinh_dieukhoan.pdf" target="_blank" style="color: #FFF;">Quy định điều khoản sử dụng dịch vụ</a></li>
+						<li style="font-weight: normal;color: #FFF;padding: 0"><a href="/resources/chinhsachbaomat.pdf" target="_blank" style="color: #FFF;">Chính sách bảo mật</a> </li>
+						<li style="font-weight: normal;color: #FFF;padding: 0"><a href="/resources/huongdanmuave.pdf" target="_blank" style="color: #FFF;">Hướng dẫn mua vé</a> </li>
+						<li style="list-style: none;">
+							<br>
+							<a href="http://online.gov.vn/CustomWebsiteDisplay.aspx?DocId=51179" target="_blank"><img id="ui--image-1" class="ui--image ui--animation" src="/resources/images/btt_giayphep.png" alt="" title="" data-at2x="" width="200" height="75"></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+				</div>
+				<div class="col-md-6">
+					<div style="font-weight: normal;color: #FFF;padding: 0">
+						<center>Ghi rõ nguồn khi Quý khách phát hành lại thông tin từ website này.</center></div>
+					<div style="font-weight: normal;color: #FFF;padding: 0"><center>Địa chỉ email: booking@vebongdaonline.vn. </center>
+					<div style="font-weight: normal;color: #FFF;padding: 0"><center>Hệ thống được vận hành bởi GMO-Z.com RUNSYSTEM.</center></div>
+					<div style="font-weight: normal;color: #FFF;padding: 0 0 20px 0"><center>Trên cơ sở uỷ quyền bán vé của Liên đoàn bóng đá Việt Nam VFF </center></div>
+				</div>
+				<div class="col-md-3">
+				</div>
+			</div>
+		</div>
+	</div></footer>
+
+
+</b></b></body></html>
